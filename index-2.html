@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Freelancer Finance Tools — Free Calculators</title>
+<meta name="description" content="Free freelance tax calculator, hourly rate calculator, quarterly tax estimator and project quote builder."/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F3F4F6;color:#111827}
+.header{background:linear-gradient(135deg,#1E1040,#4C1D95);padding:2rem 1.5rem 3.5rem;text-align:left}
+.logo{display:flex;align-items:center;gap:8px;margin-bottom:1.2rem}
+.logo-icon{width:32px;height:32px;background:#F97316;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px}
+.logo-text{color:white;font-weight:700;font-size:16px}
+.badge{margin-left:auto;font-size:11px;color:#C4B5FD;border:1px solid #7C3AED;border-radius:99px;padding:2px 10px}
+h1{color:white;font-size:1.8rem;font-weight:900;line-height:1.2;margin-bottom:.5rem}
+h1 span{color:#FB923C}
+.subtitle{color:#C4B5FD;font-size:.9rem}
+.tabs{background:white;border-radius:16px;padding:6px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:-1.5rem 1rem 0;box-shadow:0 4px 20px rgba(0,0,0,.15);position:relative;z-index:10}
+.tab{border:none;background:none;border-radius:12px;padding:10px 4px;cursor:pointer;text-align:center;transition:all .2s}
+.tab.active{background:#7C3AED;color:white}
+.tab:not(.active){color:#9CA3AF}
+.tab-icon{font-size:18px;display:block;margin-bottom:2px}
+.tab-label{font-size:11px;font-weight:700}
+.content{padding:1.5rem 1rem}
+.card{background:white;border-radius:16px;padding:1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.section-title{font-size:1.2rem;font-weight:900;margin-bottom:.25rem}
+.section-desc{color:#6B7280;font-size:.85rem;margin-bottom:1.25rem}
+.field{margin-bottom:1rem}
+label{display:block;font-size:.7rem;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.35rem}
+.input-wrap{position:relative}
+.prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#7C3AED;font-weight:700}
+input,select{width:100%;padding:.7rem 1rem;border:2px solid #E5E7EB;border-radius:12px;font-size:.95rem;font-weight:600;outline:none;background:white;-webkit-appearance:none}
+input:focus,select:focus{border-color:#7C3AED}
+.has-prefix input{padding-left:2.2rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.result-box{background:linear-gradient(135deg,#2D1B69,#6D28D9);border-radius:14px;padding:1.25rem;color:white;margin:1rem 0}
+.result-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;opacity:.65;margin-bottom:.2rem}
+.result-big{font-size:2.2rem;font-weight:900}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.2)}
+.result-row{display:flex;justify-content:space-between;font-size:.85rem;padding:.3rem 0;border-top:1px solid rgba(255,255,255,.15)}
+.result-row:first-child{border-top:1px solid rgba(255,255,255,.3);margin-top:.75rem;padding-top:.75rem}
+.result-row span:first-child{opacity:.7}
+.result-row span:last-child{font-weight:700}
+.highlight{color:#FED7AA;font-weight:900}
+.invoice-box{background:#FFFBEB;border:2px solid #FCD34D;border-radius:14px;padding:1.25rem;margin:1rem 0}
+.invoice-title{font-size:.75rem;font-weight:900;color:#92400E;margin-bottom:.75rem}
+.invoice-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.75rem}
+.invoice-keep{background:#D1FAE5;border-radius:10px;padding:.75rem;text-align:center}
+.invoice-save{background:#FEE2E2;border-radius:10px;padding:.75rem;text-align:center}
+.inv-label{font-size:.65rem;font-weight:700;text-transform:uppercase;margin-bottom:.2rem}
+.inv-amount{font-size:1.2rem;font-weight:900}
+.invoice-keep .inv-label{color:#065F46}.invoice-keep .inv-amount{color:#065F46}
+.invoice-save .inv-label{color:#991B1B}.invoice-save .inv-amount{color:#991B1B}
+.breakdown{background:#F9FAFB;border-radius:14px;padding:1.25rem;margin:1rem 0}
+.breakdown-row{display:flex;justify-content:space-between;font-size:.85rem;padding:.3rem 0}
+.breakdown-row span:first-child{color:#6B7280}
+.breakdown-row span:last-child{font-weight:700}
+.tip{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;padding:.9rem;font-size:.82rem;color:#1E40AF;margin:1rem 0}
+.tip-amber{background:#FFFBEB;border:1px solid #FCD34D;border-radius:10px;padding:.9rem;font-size:.82rem;color:#92400E;margin:1rem 0}
+.affiliate{display:flex;align-items:center;justify-content:space-between;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:12px;padding:.9rem;margin:.5rem 0;text-decoration:none;transition:all .2s}
+.affiliate:hover{border-color:#7C3AED;background:#F5F3FF}
+.aff-name{font-weight:700;color:#111827;font-size:.85rem}
+.aff-desc{color:#6B7280;font-size:.75rem}
+.aff-cta{color:#7C3AED;font-weight:700;font-size:.82rem;white-space:nowrap;margin-left:.5rem}
+.aff-title{font-size:.7rem;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.06em;margin:.75rem 0 .35rem}
+.q-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.35rem}
+.q-btn{border:2px solid #E5E7EB;background:white;border-radius:10px;padding:.6rem;font-weight:900;font-size:.9rem;cursor:pointer;transition:all .2s}
+.q-btn.active{background:#7C3AED;border-color:#7C3AED;color:white}
+.orange-box{background:linear-gradient(135deg,#EA580C,#DC2626);border-radius:14px;padding:1.25rem;color:white;margin:1rem 0}
+.footer{text-align:center;font-size:.72rem;color:#9CA3AF;padding:1rem;line-height:1.6}
+.hidden{display:none}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <div class="logo-icon">F</div>
+    <span class="logo-text">FreelancerFinanceTools.com</span>
+    <span class="badge">Free · No signup</span>
+  </div>
+  <h1>Know exactly<br><span>what you're earning.</span></h1>
+  <p class="subtitle">4 free calculators for independent workers. Updated for 2025.</p>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('tax',this)"><span class="tab-icon">📊</span><span class="tab-label">Tax</span></button>
+  <button class="tab" onclick="showTab('rate',this)"><span class="tab-icon">⏱️</span><span class="tab-label">Rate</span></button>
+  <button class="tab" onclick="showTab('quarterly',this)"><span class="tab-icon">📅</span><span class="tab-label">Quarterly</span></button>
+  <button class="tab" onclick="showTab('quote',this)"><span class="tab-icon">💼</span><span class="tab-label">Quote</span></button>
+</div>
+
+<div class="content">
+
+<!-- TAX CALCULATOR -->
+<div id="tab-tax">
+  <div class="section-title">Tax Estimator</div>
+  <div class="section-desc">See your real take-home after all taxes</div>
+  <div class="card">
+    <div class="field">
+      <label>Annual Freelance Income</label>
+      <div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="t-income" value="80000" oninput="calcTax()"></div>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label>Filing Status</label>
+        <select id="t-filing" onchange="calcTax()"><option value="single">Single</option><option value="mfj">Married Filing Jointly</option></select>
+      </div>
+      <div class="field">
+        <label>State Tax Rate %</label>
+        <input type="number" id="t-state" value="5" min="0" max="15" step="0.1" oninput="calcTax()">
+      </div>
+    </div>
+    <div class="result-box">
+      <div class="grid2">
+        <div><div class="result-label">Take-Home Pay</div><div class="result-big" id="t-takehome">$56,300</div></div>
+        <div><div class="result-label">Effective Tax Rate</div><div class="result-big" id="t-effrate">29.6%</div></div>
+      </div>
+      <div class="result-row"><span>Self-Employment Tax (15.3%)</span><span id="t-se">$11,302</span></div>
+      <div class="result-row"><span>Federal Income Tax</span><span id="t-fed">$8,398</span></div>
+      <div class="result-row"><span>State Income Tax</span><span id="t-st">$4,000</span></div>
+      <div class="result-row"><span>Total Tax Burden</span><span class="highlight" id="t-total">$23,700</span></div>
+    </div>
+    <div class="invoice-box">
+      <div class="invoice-title">💡 SET ASIDE PER INVOICE</div>
+      <div class="field">
+        <label>Invoice Amount</label>
+        <div class="input-wrap has-prefix"><span class="prefix" style="color:#D97706">$</span><input type="number" id="t-invoice" value="5000" oninput="calcTax()" style="border-color:#FCD34D"></div>
+      </div>
+      <div class="invoice-grid">
+        <div class="invoice-save"><div class="inv-label">Move to Tax Savings</div><div class="inv-amount" id="t-save">$1,480</div></div>
+        <div class="invoice-keep"><div class="inv-label">Yours to Keep</div><div class="inv-amount" id="t-keep">$3,520</div></div>
+      </div>
+    </div>
+    <div class="aff-title">Recommended Tools</div>
+    <a class="affiliate" href="https://turbotax.intuit.com" target="_blank"><div><div class="aff-name">TurboTax Self-Employed</div><div class="aff-desc">Auto-imports freelance income, finds deductions</div></div><span class="aff-cta">Try free →</span></a>
+    <a class="affiliate" href="https://quickbooks.intuit.com" target="_blank"><div><div class="aff-name">QuickBooks Self-Employed</div><div class="aff-desc">Track income, expenses & quarterly taxes</div></div><span class="aff-cta">Try free →</span></a>
+  </div>
+</div>
+
+<!-- RATE CALCULATOR -->
+<div id="tab-rate" class="hidden">
+  <div class="section-title">Hourly Rate</div>
+  <div class="section-desc">Calculate the rate you actually need to charge</div>
+  <div class="card">
+    <div class="field"><label>Desired Annual Take-Home</label><div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="r-salary" value="100000" oninput="calcRate()"></div></div>
+    <div class="field"><label>Annual Business Expenses</label><div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="r-expenses" value="8000" oninput="calcRate()"></div></div>
+    <div class="grid2">
+      <div class="field"><label>Hours/Week</label><input type="number" id="r-hours" value="40" oninput="calcRate()"></div>
+      <div class="field"><label>Vacation Weeks</label><input type="number" id="r-vac" value="4" oninput="calcRate()"></div>
+      <div class="field"><label>Billable % of Time</label><input type="number" id="r-billable" value="75" oninput="calcRate()"></div>
+      <div class="field"><label>Buffer %</label><input type="number" id="r-buffer" value="20" oninput="calcRate()"></div>
+    </div>
+    <div class="result-box">
+      <div class="result-label">Your Minimum Hourly Rate</div>
+      <div class="result-big"><span id="r-rate">$90</span><span style="font-size:1rem;opacity:.6">/hr</span></div>
+      <div class="result-grid">
+        <div><div class="result-label">Daily Rate (8hrs)</div><div style="font-weight:900;font-size:1.2rem" id="r-daily">$720</div></div>
+        <div><div class="result-label">Billable hrs/month</div><div style="font-weight:900;font-size:1.2rem" id="r-monthly">120</div></div>
+      </div>
+    </div>
+    <div class="breakdown">
+      <div class="breakdown-row"><span>Target take-home</span><span id="r-b1">$100,000</span></div>
+      <div class="breakdown-row"><span>Business expenses</span><span id="r-b2">$8,000</span></div>
+      <div class="breakdown-row"><span>Buffer</span><span id="r-b3">$21,600</span></div>
+      <div class="breakdown-row"><span>Total to bill/year</span><span id="r-b4">$129,600</span></div>
+      <div class="breakdown-row"><span>Billable hours/year</span><span id="r-b5">1,440 hrs</span></div>
+    </div>
+    <div class="aff-title">Invoice & Contract Tools</div>
+    <a class="affiliate" href="https://www.freshbooks.com" target="_blank"><div><div class="aff-name">FreshBooks</div><div class="aff-desc">Invoicing, time tracking & expense reports</div></div><span class="aff-cta">Try free →</span></a>
+    <a class="affiliate" href="https://www.honeybook.com" target="_blank"><div><div class="aff-name">HoneyBook</div><div class="aff-desc">Contracts, proposals & client management</div></div><span class="aff-cta">Try free →</span></a>
+  </div>
+</div>
+
+<!-- QUARTERLY CALCULATOR -->
+<div id="tab-quarterly" class="hidden">
+  <div class="section-title">Quarterly Tax</div>
+  <div class="section-desc">Never miss an IRS payment again</div>
+  <div class="card">
+    <div class="grid2">
+      <div class="field"><label>YTD Gross Income</label><div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="q-income" value="30000" oninput="calcQuarterly()"></div></div>
+      <div class="field"><label>YTD Business Expenses</label><div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="q-expenses" value="3000" oninput="calcQuarterly()"></div></div>
+      <div class="field"><label>Filing Status</label><select id="q-filing" onchange="calcQuarterly()"><option value="single">Single</option><option value="mfj">Married Filing Jointly</option></select></div>
+      <div class="field"><label>State Tax Rate %</label><input type="number" id="q-state" value="5" min="0" max="15" step="0.1" oninput="calcQuarterly()"></div>
+    </div>
+    <div class="field">
+      <label>Which Quarter?</label>
+      <div class="q-btns">
+        <button class="q-btn" onclick="setQuarter('Q1',this)">Q1</button>
+        <button class="q-btn active" onclick="setQuarter('Q2',this)">Q2</button>
+        <button class="q-btn" onclick="setQuarter('Q3',this)">Q3</button>
+        <button class="q-btn" onclick="setQuarter('Q4',this)">Q4</button>
+      </div>
+    </div>
+    <div class="orange-box">
+      <div class="result-label" id="q-due">Pay by June 17, 2026</div>
+      <div class="result-big" id="q-amount">$3,200</div>
+      <div style="opacity:.7;font-size:.82rem;margin-top:.25rem">estimated quarterly payment</div>
+    </div>
+    <div class="breakdown">
+      <div class="breakdown-row"><span>Annualized net income</span><span id="q-b1">$108,000</span></div>
+      <div class="breakdown-row"><span>Self-employment tax</span><span id="q-b2">$15,271</span></div>
+      <div class="breakdown-row"><span>Federal income tax</span><span id="q-b3">$13,840</span></div>
+      <div class="breakdown-row"><span>State income tax</span><span id="q-b4">$5,400</span></div>
+      <div class="breakdown-row"><span>Projected annual tax</span><span id="q-b5">$34,511</span></div>
+    </div>
+    <div class="tip-amber"><strong>Safe Harbor:</strong> Pay 90% of this year's tax or 100% of last year's to avoid IRS penalties.</div>
+  </div>
+</div>
+
+<!-- QUOTE CALCULATOR -->
+<div id="tab-quote" class="hidden">
+  <div class="section-title">Project Quote</div>
+  <div class="section-desc">Build a professional client quote in seconds</div>
+  <div class="card">
+    <div class="grid2">
+      <div class="field"><label>Your Hourly Rate</label><div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="p-rate" value="125" oninput="calcQuote()"></div></div>
+      <div class="field"><label>Est. Project Hours</label><input type="number" id="p-hours" value="20" oninput="calcQuote()"></div>
+      <div class="field"><label>Hard Costs</label><div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="p-expenses" value="0" oninput="calcQuote()"></div></div>
+      <div class="field"><label>Expense Markup %</label><input type="number" id="p-markup" value="15" oninput="calcQuote()"></div>
+      <div class="field"><label>Revision Rounds</label><input type="number" id="p-revisions" value="2" oninput="calcQuote()"></div>
+      <div class="field"><label>Hours per Revision</label><input type="number" id="p-revhours" value="2" oninput="calcQuote()"></div>
+    </div>
+    <div class="field"><label>Contingency % (scope creep buffer)</label><input type="number" id="p-contingency" value="10" oninput="calcQuote()"></div>
+    <div class="result-box">
+      <div class="grid2">
+        <div><div class="result-label">Quote Total</div><div class="result-big" id="p-total">$3,850</div></div>
+        <div><div class="result-label">50% Deposit</div><div class="result-big" id="p-deposit">$1,925</div></div>
+      </div>
+      <div style="margin-top:1rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.2)">
+        <div style="opacity:.6;font-size:.72rem">Effective rate (incl. revisions)</div>
+        <div style="font-weight:900;font-size:1.1rem" id="p-effrate">$148/hr</div>
+      </div>
+    </div>
+    <div class="breakdown">
+      <div class="breakdown-row"><span>Core labor</span><span id="p-b1">$2,500</span></div>
+      <div class="breakdown-row"><span>Revision rounds</span><span id="p-b2">$500</span></div>
+      <div class="breakdown-row"><span>Expenses + markup</span><span id="p-b3">$0</span></div>
+      <div class="breakdown-row"><span>Contingency</span><span id="p-b4">$300</span></div>
+      <div class="breakdown-row" style="border-top:2px solid #E5E7EB;margin-top:.25rem;padding-top:.5rem"><span><strong>Total</strong></span><span style="color:#7C3AED;font-weight:900" id="p-b5">$3,300</span></div>
+    </div>
+    <div class="tip"><strong>Always get 50% upfront.</strong> It filters out bad clients and protects your time.</div>
+    <div class="aff-title">Contract & Proposal Tools</div>
+    <a class="affiliate" href="https://www.hellobonsai.com" target="_blank"><div><div class="aff-name">Bonsai</div><div class="aff-desc">Contracts, invoices & project management</div></div><span class="aff-cta">Try free →</span></a>
+    <a class="affiliate" href="https://www.and.co" target="_blank"><div><div class="aff-name">AND.CO</div><div class="aff-desc">Free proposals, contracts & invoices</div></div><span class="aff-cta">Try free →</span></a>
+  </div>
+</div>
+
+</div><!-- end content -->
+
+<div class="footer">
+  Estimates only — not tax or legal advice. Consult a CPA for your situation.<br>
+  Tax brackets reflect 2025 IRS tables. © 2026 FreelancerFinanceTools.com
+</div>
+
+<script>
+const STD={single:15000,mfj:30000};
+const BR={single:[[11925,.10],[48475,.12],[103350,.22],[197300,.24],[250525,.32],[626350,.35],[1e9,.37]],mfj:[[23850,.10],[96950,.12],[206700,.22],[394600,.24],[501050,.32],[751600,.35],[1e9,.37]]};
+function fedTax(t,f){let x=0,p=0;for(const[l,r]of BR[f]){if(t<=p)break;x+=Math.min(t-p,l-p)*r;p=l;}return x;}
+function fmt(n){return'$'+Math.max(0,Math.round(n)).toLocaleString();}
+function pct(n){return Math.max(0,n).toFixed(1)+'%';}
+
+function calcTax(){
+  const inc=+document.getElementById('t-income').value||0;
+  const fil=document.getElementById('t-filing').value;
+  const st=+document.getElementById('t-state').value||0;
+  const inv=+document.getElementById('t-invoice').value||0;
+  const se=inc*0.9235*0.153;
+  const fed=fedTax(Math.max(0,inc-se/2-STD[fil]),fil);
+  const state=inc*st/100;
+  const total=se+fed+state;
+  const take=Math.max(0,inc-total);
+  const rate=inc>0?total/inc:0;
+  document.getElementById('t-takehome').textContent=fmt(take);
+  document.getElementById('t-effrate').textContent=pct(rate*100);
+  document.getElementById('t-se').textContent=fmt(se);
+  document.getElementById('t-fed').textContent=fmt(fed);
+  document.getElementById('t-st').textContent=fmt(state);
+  document.getElementById('t-total').textContent=fmt(total);
+  document.getElementById('t-save').textContent=fmt(inv*rate);
+  document.getElementById('t-keep').textContent=fmt(inv*(1-rate));
+}
+
+function calcRate(){
+  const sal=+document.getElementById('r-salary').value||0;
+  const exp=+document.getElementById('r-expenses').value||0;
+  const hrs=+document.getElementById('r-hours').value||0;
+  const vac=+document.getElementById('r-vac').value||0;
+  const bil=+document.getElementById('r-billable').value||75;
+  const buf=+document.getElementById('r-buffer').value||0;
+  const wks=52-vac;
+  const bHrs=wks*hrs*(bil/100);
+  const needed=(sal+exp)*(1+buf/100);
+  const rate=bHrs>0?needed/bHrs:0;
+  document.getElementById('r-rate').textContent=fmt(rate);
+  document.getElementById('r-daily').textContent=fmt(rate*8);
+  document.getElementById('r-monthly').textContent=Math.round(bHrs/12);
+  document.getElementById('r-b1').textContent=fmt(sal);
+  document.getElementById('r-b2').textContent=fmt(exp);
+  document.getElementById('r-b3').textContent=fmt((sal+exp)*buf/100);
+  document.getElementById('r-b4').textContent=fmt(needed);
+  document.getElementById('r-b5').textContent=Math.round(bHrs)+' hrs';
+}
+
+let currentQ='Q2';
+const dueDates={Q1:'April 15, 2026',Q2:'June 17, 2026',Q3:'September 16, 2026',Q4:'January 15, 2027'};
+function setQuarter(q,btn){
+  currentQ=q;
+  document.querySelectorAll('.q-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  calcQuarterly();
+}
+function calcQuarterly(){
+  const inc=+document.getElementById('q-income').value||0;
+  const exp=+document.getElementById('q-expenses').value||0;
+  const fil=document.getElementById('q-filing').value;
+  const st=+document.getElementById('q-state').value||0;
+  const qn={Q1:1,Q2:2,Q3:3,Q4:4}[currentQ];
+  const ann=Math.max(0,((inc-exp)/qn)*4);
+  const se=ann*0.9235*0.153;
+  const fed=fedTax(Math.max(0,ann-se/2-STD[fil]),fil);
+  const state=ann*st/100;
+  const total=se+fed+state;
+  document.getElementById('q-due').textContent='Pay by '+dueDates[currentQ];
+  document.getElementById('q-amount').textContent=fmt(total/4);
+  document.getElementById('q-b1').textContent=fmt(ann);
+  document.getElementById('q-b2').textContent=fmt(se);
+  document.getElementById('q-b3').textContent=fmt(fed);
+  document.getElementById('q-b4').textContent=fmt(state);
+  document.getElementById('q-b5').textContent=fmt(total);
+}
+
+function calcQuote(){
+  const rate=+document.getElementById('p-rate').value||0;
+  const hrs=+document.getElementById('p-hours').value||0;
+  const exp=+document.getElementById('p-expenses').value||0;
+  const mup=+document.getElementById('p-markup').value||0;
+  const rev=+document.getElementById('p-revisions').value||0;
+  const rh=+document.getElementById('p-revhours').value||0;
+  const con=+document.getElementById('p-contingency').value||0;
+  const labor=rate*hrs;
+  const revCost=rev*rh*rate;
+  const expM=exp*(1+mup/100);
+  const sub=labor+revCost+expM;
+  const conAmt=sub*con/100;
+  const total=sub+conAmt;
+  const totalHrs=hrs+rev*rh;
+  document.getElementById('p-total').textContent=fmt(total);
+  document.getElementById('p-deposit').textContent=fmt(total*.5);
+  document.getElementById('p-effrate').textContent=fmt(totalHrs>0?total/totalHrs:0)+'/hr';
+  document.getElementById('p-b1').textContent=fmt(labor);
+  document.getElementById('p-b2').textContent=fmt(revCost);
+  document.getElementById('p-b3').textContent=fmt(expM);
+  document.getElementById('p-b4').textContent=fmt(conAmt);
+  document.getElementById('p-b5').textContent=fmt(total);
+}
+
+function showTab(id,btn){
+  ['tax','rate','quarterly','quote'].forEach(t=>document.getElementById('tab-'+t).classList.add('hidden'));
+  document.getElementById('tab-'+id).classList.remove('hidden');
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+calcTax();calcRate();calcQuarterly();calcQuote();
+</script>
+</body>
+</html>
