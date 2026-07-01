@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Freelancer Finance Tools — Free Calculators</title>
-<meta name="description" content="Free freelance tax calculator, hourly rate calculator, quarterly tax estimator and project quote builder."/>
+<title>Freelancer Finance Tools — Free Tax & Rate Calculators for Independent Workers</title>
+<meta name="description" content="Free calculators for freelancers and gig workers: self-employment tax estimator, hourly rate calculator, quarterly tax estimator, project quote builder, and DoorDash driver tax calculator with mileage deduction. Updated for the 2025 tax year."/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4199821471857686" crossorigin="anonymous"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F3F4F6;color:#111827}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F3F4F6;color:#111827;line-height:1.5}
 .header{background:linear-gradient(135deg,#1E1040,#4C1D95);padding:2rem 1.5rem 3.5rem;text-align:left}
+.wrap{max-width:640px;margin:0 auto}
 .logo{display:flex;align-items:center;gap:8px;margin-bottom:1.2rem}
 .logo-icon{width:32px;height:32px;background:#F97316;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px}
 .logo-text{color:white;font-weight:700;font-size:16px}
@@ -17,15 +18,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 h1{color:white;font-size:1.8rem;font-weight:900;line-height:1.2;margin-bottom:.5rem}
 h1 span{color:#FB923C}
 .subtitle{color:#C4B5FD;font-size:.9rem}
-.tabs{background:white;border-radius:16px;padding:6px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:-1.5rem 1rem 0;box-shadow:0 4px 20px rgba(0,0,0,.15);position:relative;z-index:10}
-.tab{border:none;background:none;border-radius:12px;padding:10px 4px;cursor:pointer;text-align:center;transition:all .2s}
+.tabs{background:white;border-radius:16px;padding:6px;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:-1.5rem 1rem 0;box-shadow:0 4px 20px rgba(0,0,0,.15);position:relative;z-index:10;max-width:640px}
+@media(min-width:680px){.tabs{margin:-1.5rem auto 0}}
+.tab{border:none;background:none;border-radius:12px;padding:10px 2px;cursor:pointer;text-align:center;transition:all .2s}
 .tab.active{background:#7C3AED;color:white}
 .tab:not(.active){color:#9CA3AF}
-.tab-icon{font-size:18px;display:block;margin-bottom:2px}
-.tab-label{font-size:11px;font-weight:700}
+.tab-icon{font-size:17px;display:block;margin-bottom:2px}
+.tab-label{font-size:10px;font-weight:700}
 .content{padding:1.5rem 1rem}
 .card{background:white;border-radius:16px;padding:1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.section-title{font-size:1.2rem;font-weight:900;margin-bottom:.25rem}
+.section-title{font-size:1.3rem;font-weight:900;margin-bottom:.25rem}
 .section-desc{color:#6B7280;font-size:.85rem;margin-bottom:1.25rem}
 .field{margin-bottom:1rem}
 label{display:block;font-size:.7rem;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.35rem}
@@ -69,20 +71,35 @@ input:focus,select:focus{border-color:#7C3AED}
 .q-btn{border:2px solid #E5E7EB;background:white;border-radius:10px;padding:.6rem;font-weight:900;font-size:.9rem;cursor:pointer;transition:all .2s}
 .q-btn.active{background:#7C3AED;border-color:#7C3AED;color:white}
 .orange-box{background:linear-gradient(135deg,#EA580C,#DC2626);border-radius:14px;padding:1.25rem;color:white;margin:1rem 0}
-.footer{text-align:center;font-size:.72rem;color:#9CA3AF;padding:1rem;line-height:1.6}
+.article{background:white;border-radius:16px;padding:1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-top:1rem}
+.article h3{font-size:1.05rem;font-weight:800;margin:1.1rem 0 .4rem;color:#1F2937}
+.article h3:first-child{margin-top:0}
+.article p{font-size:.9rem;color:#374151;margin-bottom:.7rem}
+.article ul{margin:0 0 .7rem 1.1rem}
+.article li{font-size:.9rem;color:#374151;margin-bottom:.3rem}
+.article strong{color:#111827}
+.article table{width:100%;border-collapse:collapse;margin:.5rem 0 .9rem;font-size:.82rem}
+.article th,.article td{text-align:left;padding:.45rem .5rem;border-bottom:1px solid #E5E7EB}
+.article th{color:#6B7280;font-weight:700;text-transform:uppercase;font-size:.68rem;letter-spacing:.04em}
+.faq summary{font-weight:700;font-size:.9rem;cursor:pointer;padding:.7rem 0;color:#1F2937;border-bottom:1px solid #E5E7EB}
+.faq p{padding:.6rem 0 .3rem;font-size:.88rem;color:#374151}
+.footer{text-align:center;font-size:.72rem;color:#9CA3AF;padding:1.5rem 1rem;line-height:1.7;max-width:640px;margin:0 auto}
+.footer a{color:#7C3AED;text-decoration:none}
 .hidden{display:none}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="logo">
-    <div class="logo-icon">F</div>
-    <span class="logo-text">FreelancerFinanceTools.com</span>
-    <span class="badge">Free · No signup</span>
+  <div class="wrap">
+    <div class="logo">
+      <div class="logo-icon">F</div>
+      <span class="logo-text">FreelancerFinanceTools.com</span>
+      <span class="badge">Free · No signup</span>
+    </div>
+    <h1>Know exactly<br><span>what you're earning.</span></h1>
+    <p class="subtitle">5 free calculators for freelancers, contractors and gig workers. Updated for the 2025 tax year.</p>
   </div>
-  <h1>Know exactly<br><span>what you're earning.</span></h1>
-  <p class="subtitle">4 free calculators for independent workers. Updated for 2025.</p>
 </div>
 
 <div class="tabs">
@@ -90,13 +107,14 @@ input:focus,select:focus{border-color:#7C3AED}
   <button class="tab" onclick="showTab('rate',this)"><span class="tab-icon">⏱️</span><span class="tab-label">Rate</span></button>
   <button class="tab" onclick="showTab('quarterly',this)"><span class="tab-icon">📅</span><span class="tab-label">Quarterly</span></button>
   <button class="tab" onclick="showTab('quote',this)"><span class="tab-icon">💼</span><span class="tab-label">Quote</span></button>
+  <button class="tab" onclick="showTab('doordash',this)"><span class="tab-icon">🚗</span><span class="tab-label">Driver</span></button>
 </div>
 
-<div class="content">
+<div class="content wrap">
 
 <!-- TAX CALCULATOR -->
 <div id="tab-tax">
-  <div class="section-title">Tax Estimator</div>
+  <div class="section-title">Freelance Tax Estimator</div>
   <div class="section-desc">See your real take-home after all taxes</div>
   <div class="card">
     <div class="field">
@@ -135,14 +153,28 @@ input:focus,select:focus{border-color:#7C3AED}
       </div>
     </div>
     <div class="aff-title">Recommended Tools</div>
-    <a class="affiliate" href="https://turbotax.intuit.com" target="_blank"><div><div class="aff-name">TurboTax Self-Employed</div><div class="aff-desc">Auto-imports freelance income, finds deductions</div></div><span class="aff-cta">Try free →</span></a>
-    <a class="affiliate" href="https://quickbooks.intuit.com" target="_blank"><div><div class="aff-name">QuickBooks Self-Employed</div><div class="aff-desc">Track income, expenses & quarterly taxes</div></div><span class="aff-cta">Try free →</span></a>
+    <a class="affiliate" href="https://turbotax.intuit.com" target="_blank" rel="noopener"><div><div class="aff-name">TurboTax Self-Employed</div><div class="aff-desc">Auto-imports freelance income, finds deductions</div></div><span class="aff-cta">Try free →</span></a>
+    <a class="affiliate" href="https://quickbooks.intuit.com" target="_blank" rel="noopener"><div><div class="aff-name">QuickBooks Self-Employed</div><div class="aff-desc">Track income, expenses & quarterly taxes</div></div><span class="aff-cta">Try free →</span></a>
+  </div>
+
+  <div class="article">
+    <h3>How much tax do freelancers actually pay?</h3>
+    <p>Most people are surprised by their first freelance tax bill. When you are an employee, your employer quietly pays half of your Social Security and Medicare contributions for you. When you work for yourself, you cover the whole thing. That single difference is why a freelancer earning the same headline income as a salaried worker takes home noticeably less.</p>
+    <p>Your freelance tax bill is built from three separate layers, and it helps to understand each one:</p>
+    <h3>1. Self-employment tax (15.3%)</h3>
+    <p>This is the big one that catches people out. Self-employment tax covers Social Security (12.4%) and Medicare (2.9%), for a combined 15.3%. You pay it on 92.35% of your net profit. The one piece of good news is that you can deduct half of this amount from the income that your federal income tax is calculated on, which softens the blow slightly.</p>
+    <h3>2. Federal income tax</h3>
+    <p>After subtracting the self-employment deduction and your standard deduction ($15,000 for single filers and $30,000 for married couples filing jointly in 2025), what remains is taxed at the usual federal rates. These are progressive, starting at 10% and rising in bands, so only the portion of income inside each band is taxed at that band's rate.</p>
+    <h3>3. State income tax</h3>
+    <p>This varies enormously. States such as Texas, Florida, Nevada, Washington and Wyoming levy no personal income tax at all, while California, New York and Hawaii can reach into double digits at higher incomes. The calculator above lets you enter your own state rate so the estimate reflects where you actually live.</p>
+    <h3>The one habit that saves freelancers</h3>
+    <p>The single most useful thing you can do is treat a portion of every payment as money that was never yours. A practical rule of thumb is to move 25–30% of each invoice into a separate savings account the moment it lands. The "set aside per invoice" box above does this math for you automatically based on your own effective rate. When a tax deadline arrives, the money is already waiting and the payment is painless.</p>
   </div>
 </div>
 
 <!-- RATE CALCULATOR -->
 <div id="tab-rate" class="hidden">
-  <div class="section-title">Hourly Rate</div>
+  <div class="section-title">Hourly Rate Calculator</div>
   <div class="section-desc">Calculate the rate you actually need to charge</div>
   <div class="card">
     <div class="field"><label>Desired Annual Take-Home</label><div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="r-salary" value="100000" oninput="calcRate()"></div></div>
@@ -169,14 +201,31 @@ input:focus,select:focus{border-color:#7C3AED}
       <div class="breakdown-row"><span>Billable hours/year</span><span id="r-b5">1,440 hrs</span></div>
     </div>
     <div class="aff-title">Invoice & Contract Tools</div>
-    <a class="affiliate" href="https://www.freshbooks.com" target="_blank"><div><div class="aff-name">FreshBooks</div><div class="aff-desc">Invoicing, time tracking & expense reports</div></div><span class="aff-cta">Try free →</span></a>
-    <a class="affiliate" href="https://www.honeybook.com" target="_blank"><div><div class="aff-name">HoneyBook</div><div class="aff-desc">Contracts, proposals & client management</div></div><span class="aff-cta">Try free →</span></a>
+    <a class="affiliate" href="https://www.freshbooks.com" target="_blank" rel="noopener"><div><div class="aff-name">FreshBooks</div><div class="aff-desc">Invoicing, time tracking & expense reports</div></div><span class="aff-cta">Try free →</span></a>
+    <a class="affiliate" href="https://www.honeybook.com" target="_blank" rel="noopener"><div><div class="aff-name">HoneyBook</div><div class="aff-desc">Contracts, proposals & client management</div></div><span class="aff-cta">Try free →</span></a>
+  </div>
+
+  <div class="article">
+    <h3>How to set a freelance rate without guessing</h3>
+    <p>One of the most common mistakes new freelancers make is picking a number that "sounds about right" — usually one that quietly leaves them earning less than they would in a regular job once you account for everything they have to cover themselves. The calculator above works backwards from the life you want to fund, rather than forwards from an arbitrary hourly figure.</p>
+    <h3>Billable hours are not the same as working hours</h3>
+    <p>If you sit at your desk for 40 hours a week, you will not bill 40 hours. Time disappears into invoicing, chasing payments, marketing, client calls, admin and learning. For most freelancers, somewhere between 60% and 75% of working time is genuinely billable. Setting your rate as if every hour is billable is the fastest route to overwork and underpayment.</p>
+    <h3>Costs you must build into the rate</h3>
+    <ul>
+      <li>Software, subscriptions and equipment</li>
+      <li>Health insurance, which an employer would normally subsidise</li>
+      <li>Accounting and professional fees</li>
+      <li>Time off — holidays and sick days are unpaid when you work for yourself</li>
+      <li>Self-employment and income tax</li>
+    </ul>
+    <h3>Always add a buffer</h3>
+    <p>Freelance income is lumpy. Some months overflow with work; others are quiet. A buffer of 15–25% built into your rate cushions the slow stretches and the late-paying clients, so a thin month does not become a financial emergency. If the rate the calculator gives you is higher than what you currently charge, that gap is the amount you have been quietly subsidising your clients.</p>
   </div>
 </div>
 
 <!-- QUARTERLY CALCULATOR -->
 <div id="tab-quarterly" class="hidden">
-  <div class="section-title">Quarterly Tax</div>
+  <div class="section-title">Quarterly Tax Estimator</div>
   <div class="section-desc">Never miss an IRS payment again</div>
   <div class="card">
     <div class="grid2">
@@ -208,11 +257,28 @@ input:focus,select:focus{border-color:#7C3AED}
     </div>
     <div class="tip-amber"><strong>Safe Harbor:</strong> Pay 90% of this year's tax or 100% of last year's to avoid IRS penalties.</div>
   </div>
+
+  <div class="article">
+    <h3>Why freelancers pay tax four times a year</h3>
+    <p>When you are employed, tax is withheld from every paycheck automatically. As a freelancer, nobody does that for you, so the IRS asks you to pay as you go through quarterly estimated payments. Skipping them does not just create a large bill in April — it can also trigger underpayment penalties on top of the tax you already owe.</p>
+    <h3>2026 quarterly due dates</h3>
+    <table>
+      <tr><th>Quarter</th><th>Income period</th><th>Due date</th></tr>
+      <tr><td>Q1</td><td>Jan 1 – Mar 31</td><td>April 15, 2026</td></tr>
+      <tr><td>Q2</td><td>Apr 1 – May 31</td><td>June 17, 2026</td></tr>
+      <tr><td>Q3</td><td>Jun 1 – Aug 31</td><td>September 16, 2026</td></tr>
+      <tr><td>Q4</td><td>Sep 1 – Dec 31</td><td>January 15, 2027</td></tr>
+    </table>
+    <h3>The safe harbor rule, in plain English</h3>
+    <p>You can avoid underpayment penalties if you pay either 90% of the tax you will owe this year, or 100% of what you owed last year (110% if your prior-year income was above $150,000). Paying based on last year's figure is often simpler, because you already know that number with certainty.</p>
+    <h3>A system that makes this effortless</h3>
+    <p>Open a dedicated tax savings account and move 28–32% of every payment into it as the money arrives. When each quarterly deadline comes around, you simply pay from that account. The estimator above annualises your year-to-date numbers to project what each quarterly payment should be.</p>
+  </div>
 </div>
 
 <!-- QUOTE CALCULATOR -->
 <div id="tab-quote" class="hidden">
-  <div class="section-title">Project Quote</div>
+  <div class="section-title">Project Quote Builder</div>
   <div class="section-desc">Build a professional client quote in seconds</div>
   <div class="card">
     <div class="grid2">
@@ -243,16 +309,112 @@ input:focus,select:focus{border-color:#7C3AED}
     </div>
     <div class="tip"><strong>Always get 50% upfront.</strong> It filters out bad clients and protects your time.</div>
     <div class="aff-title">Contract & Proposal Tools</div>
-    <a class="affiliate" href="https://www.hellobonsai.com" target="_blank"><div><div class="aff-name">Bonsai</div><div class="aff-desc">Contracts, invoices & project management</div></div><span class="aff-cta">Try free →</span></a>
-    <a class="affiliate" href="https://www.and.co" target="_blank"><div><div class="aff-name">AND.CO</div><div class="aff-desc">Free proposals, contracts & invoices</div></div><span class="aff-cta">Try free →</span></a>
+    <a class="affiliate" href="https://www.hellobonsai.com" target="_blank" rel="noopener"><div><div class="aff-name">Bonsai</div><div class="aff-desc">Contracts, invoices & project management</div></div><span class="aff-cta">Try free →</span></a>
+    <a class="affiliate" href="https://www.and.co" target="_blank" rel="noopener"><div><div class="aff-name">AND.CO</div><div class="aff-desc">Free proposals, contracts & invoices</div></div><span class="aff-cta">Try free →</span></a>
+  </div>
+
+  <div class="article">
+    <h3>How to price a project without leaving money behind</h3>
+    <p>Flat-rate project pricing is one of the biggest levers a freelancer has, but it is easy to get wrong. Quote too low and you resent the work; quote without structure and scope creep quietly eats your margin. A good quote is really a small contract, and it protects both you and the client.</p>
+    <h3>Quote the project, not the hour</h3>
+    <p>Clients who fixate on your hourly rate tend to watch the clock. Clients who see a project price focus on the outcome they are buying, which is what they actually care about. Project pricing also rewards you for getting faster and more skilled, rather than punishing efficiency.</p>
+    <h3>The four parts of a solid quote</h3>
+    <ul>
+      <li><strong>Core labour:</strong> your honest hour estimate multiplied by your rate. Estimate generously — coming in under budget is far easier than asking for more.</li>
+      <li><strong>Revisions:</strong> state how many rounds are included. "Unlimited revisions" is a trap; two or three rounds is standard.</li>
+      <li><strong>Hard costs:</strong> stock assets, software, subcontractors. Mark these up to cover the time you spend managing them.</li>
+      <li><strong>Contingency:</strong> a 10–15% buffer for the surprises that happen on almost every project.</li>
+    </ul>
+    <h3>Always take a deposit</h3>
+    <p>Collecting 50% upfront does two things at once: it filters out clients who were never serious, and it protects your time if a project stalls or collapses. A serious client will not blink at a deposit — it is standard practice across the industry.</p>
+  </div>
+</div>
+
+<!-- DOORDASH / GIG DRIVER CALCULATOR -->
+<div id="tab-doordash" class="hidden">
+  <div class="section-title">Gig Driver Tax Calculator</div>
+  <div class="section-desc">For DoorDash, Uber, Lyft, Instacart & other delivery drivers</div>
+  <div class="card">
+    <div class="field">
+      <label>Gross Earnings (before expenses)</label>
+      <div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="d-income" value="40000" oninput="calcDoordash()"></div>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label>Miles Driven for Work</label>
+        <input type="number" id="d-miles" value="20000" oninput="calcDoordash()">
+      </div>
+      <div class="field">
+        <label>IRS Mileage Rate ($/mi)</label>
+        <input type="number" id="d-rate" value="0.70" step="0.01" oninput="calcDoordash()">
+      </div>
+      <div class="field">
+        <label>Other Expenses</label>
+        <div class="input-wrap has-prefix"><span class="prefix">$</span><input type="number" id="d-other" value="500" oninput="calcDoordash()"></div>
+      </div>
+      <div class="field">
+        <label>State Tax Rate %</label>
+        <input type="number" id="d-state" value="5" min="0" max="15" step="0.1" oninput="calcDoordash()">
+      </div>
+    </div>
+    <div class="field">
+      <label>Filing Status</label>
+      <select id="d-filing" onchange="calcDoordash()"><option value="single">Single</option><option value="mfj">Married Filing Jointly</option></select>
+    </div>
+    <div class="result-box">
+      <div class="grid2">
+        <div><div class="result-label">Estimated Take-Home</div><div class="result-big" id="d-takehome">$24,800</div></div>
+        <div><div class="result-label">Total Tax</div><div class="result-big" id="d-total">$1,200</div></div>
+      </div>
+      <div class="result-row"><span>Mileage Deduction</span><span class="highlight" id="d-mileded">$14,000</span></div>
+      <div class="result-row"><span>Net Taxable Profit</span><span id="d-net">$25,500</span></div>
+      <div class="result-row"><span>Self-Employment Tax</span><span id="d-se">$3,604</span></div>
+      <div class="result-row"><span>Federal Income Tax</span><span id="d-fed">$880</span></div>
+      <div class="result-row"><span>State Income Tax</span><span id="d-st">$1,275</span></div>
+    </div>
+    <div class="tip-amber"><strong>The mileage deduction is everything for drivers.</strong> At $0.70/mile, every 1,000 miles you log cuts $700 off your taxable profit. Track every mile — it is the difference between a small tax bill and a painful one.</div>
+    <div class="aff-title">Mileage & Tax Tools for Drivers</div>
+    <a class="affiliate" href="https://www.everlance.com" target="_blank" rel="noopener"><div><div class="aff-name">Everlance</div><div class="aff-desc">Automatic mileage tracking for gig drivers</div></div><span class="aff-cta">Try free →</span></a>
+    <a class="affiliate" href="https://www.stridehealth.com" target="_blank" rel="noopener"><div><div class="aff-name">Stride</div><div class="aff-desc">Free mileage & expense tracking for 1099 workers</div></div><span class="aff-cta">Try free →</span></a>
+  </div>
+
+  <div class="article">
+    <h3>How taxes work for DoorDash and other delivery drivers</h3>
+    <p>If you drive for DoorDash, Uber, Lyft, Instacart or any similar platform, you are not an employee — you are an independent contractor. The platform reports your earnings on a 1099 form and withholds nothing. That means the full responsibility for tax sits with you, and it works very differently from a regular paycheck.</p>
+    <h3>The mileage deduction is the most important number you have</h3>
+    <p>Here is the part that changes everything for drivers: you can deduct your business mileage. For 2025 the standard mileage rate is $0.70 per mile, and that deduction comes straight off your gross earnings before any tax is calculated. A driver who earns $40,000 but logs 20,000 business miles only pays tax on roughly $26,000 of profit, not the full $40,000. The miles you drive between deliveries, and while waiting for orders with the app on, generally count too — not just the miles with food in the car.</p>
+    <h3>What counts as deductible mileage</h3>
+    <ul>
+      <li>Driving to a restaurant to pick up an order</li>
+      <li>Driving to deliver to the customer</li>
+      <li>Driving between deliveries and while waiting for the next order with the app on</li>
+      <li>Driving to a busy zone to start your shift, in many cases</li>
+    </ul>
+    <p>Commuting that is unrelated to work does not count, which is why a reliable mileage log matters so much. Apps like the ones above record this automatically in the background.</p>
+    <h3>Standard mileage versus actual expenses</h3>
+    <p>There are two methods to deduct vehicle costs. The standard mileage method multiplies your business miles by the IRS rate and is simpler. The actual expense method adds up fuel, insurance, repairs, depreciation and more, then deducts the business-use percentage. For most gig drivers the standard mileage method is both easier and more generous, which is why the calculator above uses it. You generally have to choose the standard mileage method in the first year you use a vehicle for work if you want the option to switch later.</p>
+    <h3>Set money aside as you earn</h3>
+    <p>Because nothing is withheld, the same discipline that helps freelancers helps drivers: move roughly 25–30% of your net profit into a separate account as you go, and pay quarterly estimated taxes so you are never blindsided in April.</p>
   </div>
 </div>
 
 </div><!-- end content -->
 
+<!-- FAQ -->
+<div class="content wrap">
+  <div class="article faq">
+    <h3>Frequently asked questions</h3>
+    <details><summary>Are these calculators free to use?</summary><p>Yes. Every calculator on this site is completely free, with no sign-up, account or payment required. The site is supported by advertising and by affiliate links to tools we think freelancers and drivers will find useful.</p></details>
+    <details><summary>Is this tax advice?</summary><p>No. These tools provide general estimates for planning purposes only and are not a substitute for advice from a qualified accountant or tax professional who knows your specific situation. Tax rules change and vary by location.</p></details>
+    <details><summary>Which tax year do the calculators use?</summary><p>The federal brackets and standard deductions reflect the 2025 tax year, and the standard mileage rate used in the driver calculator is the 2025 figure of $0.70 per mile.</p></details>
+    <details><summary>Do you store the numbers I enter?</summary><p>No. All calculations happen instantly in your own browser. Nothing you type is sent to or stored on a server.</p></details>
+  </div>
+</div>
+
 <div class="footer">
-  Estimates only — not tax or legal advice. Consult a CPA for your situation.<br>
-  Tax brackets reflect 2025 IRS tables. © 2026 FreelancerFinanceTools.com
+  <p><strong>Estimates only — not tax or legal advice.</strong> Consult a qualified CPA or tax professional for guidance specific to your situation. Tax brackets reflect 2025 IRS tables; the standard mileage rate used is the 2025 figure.</p>
+  <p>Not affiliated with, endorsed by, or sponsored by DoorDash, Uber, Lyft, Instacart, or any platform mentioned. All product names, logos and brands are property of their respective owners and are used for identification purposes only.</p>
+  <p>© 2026 FreelancerFinanceTools.com · All calculators are free.</p>
 </div>
 
 <script>
@@ -357,14 +519,37 @@ function calcQuote(){
   document.getElementById('p-b5').textContent=fmt(total);
 }
 
+function calcDoordash(){
+  const inc=+document.getElementById('d-income').value||0;
+  const miles=+document.getElementById('d-miles').value||0;
+  const mrate=+document.getElementById('d-rate').value||0;
+  const other=+document.getElementById('d-other').value||0;
+  const fil=document.getElementById('d-filing').value;
+  const st=+document.getElementById('d-state').value||0;
+  const mileDed=miles*mrate;
+  const net=Math.max(0,inc-mileDed-other);
+  const se=net*0.9235*0.153;
+  const fed=fedTax(Math.max(0,net-se/2-STD[fil]),fil);
+  const state=net*st/100;
+  const total=se+fed+state;
+  const take=Math.max(0,inc-other-total);
+  document.getElementById('d-mileded').textContent=fmt(mileDed);
+  document.getElementById('d-net').textContent=fmt(net);
+  document.getElementById('d-se').textContent=fmt(se);
+  document.getElementById('d-fed').textContent=fmt(fed);
+  document.getElementById('d-st').textContent=fmt(state);
+  document.getElementById('d-total').textContent=fmt(total);
+  document.getElementById('d-takehome').textContent=fmt(take);
+}
+
 function showTab(id,btn){
-  ['tax','rate','quarterly','quote'].forEach(t=>document.getElementById('tab-'+t).classList.add('hidden'));
+  ['tax','rate','quarterly','quote','doordash'].forEach(t=>document.getElementById('tab-'+t).classList.add('hidden'));
   document.getElementById('tab-'+id).classList.remove('hidden');
   document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
 }
 
-calcTax();calcRate();calcQuarterly();calcQuote();
+calcTax();calcRate();calcQuarterly();calcQuote();calcDoordash();
 </script>
 </body>
 </html>
